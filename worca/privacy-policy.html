@@ -37,7 +37,7 @@
 <body>
     <div class="container">
         <h1>Política de Privacidad</h1>
-        <p><em>Última actualización: 8 de mayo de 2026</em></p>
+        <p><em>Última actualización: 10 de julio de 2026</em></p>
 
         <h2>1. Introducción</h2>
         <p>
@@ -46,13 +46,19 @@
             nuestros usuarios es de suma importancia, y nos comprometemos a proteger cualquier información generada a
             través del uso de la Aplicación.
         </p>
+        <p>
+            La Aplicación funciona de forma completamente local por defecto. La sincronización en la nube y los
+            calendarios compartidos son funciones opcionales que el usuario debe solicitar de forma expresa y que un
+            administrador debe aprobar, tal y como se describe en el apartado 4.
+        </p>
 
         <h2>2. Información Recopilada</h2>
         <h3>2.1. Información Personal</h3>
         <p>
             La Aplicación no recopila, solicita ni almacena ninguna información personal identificable del usuario, como
             nombres, direcciones de correo electrónico, números de teléfono o cualquier otro dato que pueda identificar
-            al usuario de forma externa.
+            al usuario de forma externa. Cuando la sincronización está activa, la Aplicación utiliza un identificador
+            seudónimo derivado del dispositivo (apartado 2.4), no de la persona.
         </p>
 
         <h3>2.2. Datos del Calendario y Turnos</h3>
@@ -61,22 +67,58 @@
             datos creados por el usuario. Estos datos pueden incluir:
         </p>
         <ul>
-            <li>Calendarios creados por el usuario (nombre, configuración de visibilidad).</li>
+            <li>Calendarios creados por el usuario (nombre, token de compartición y configuración de visibilidad).</li>
             <li>Turnos definidos por el usuario: inicial, nombre, colores, horas de inicio y fin, indicadores de día
                 libre y vacaciones.</li>
-            <li>Entradas de días: turno asignado, notas personales y hora de recordatorio configurada.</li>
-            <li>Calendarios compartidos suscritos (solo lectura, identificados por un token de suscripción).</li>
+            <li>Entradas de días: turno asignado, un turno secundario opcional y si este se ha trabajado (turno doble),
+                notas personales y hora de recordatorio configurada.</li>
+            <li>Calendarios compartidos suscritos (solo lectura, identificados por un token de suscripción) y el nombre
+                personalizado que el usuario les asigne.</li>
         </ul>
 
-        <h3>2.3. Identificador de Dispositivo</h3>
+        <h3>2.3. Datos Visibles para Otros Usuarios</h3>
         <p>
-            Cuando la sincronización en la nube está activa, la Aplicación genera y almacena de forma segura un
-            identificador único de dispositivo (<em>device ID</em>) mediante <strong>expo-secure-store</strong>. Este
-            identificador se utiliza exclusivamente para registrar y aprobar el dispositivo en el sistema de
-            sincronización, sin asociarse a ningún dato personal identificable.
+            Cuando el usuario comparte un calendario mediante su token, quienes se suscriban a él reciben, en modo de
+            solo lectura:
+        </p>
+        <ul>
+            <li>El nombre del calendario.</li>
+            <li>El turno asignado a cada día, incluido el turno secundario si lo hubiera.</li>
+            <li>Los datos de los turnos necesarios para interpretar ese calendario: inicial, nombre, colores, horas de
+                inicio y fin, e indicadores de día libre y vacaciones. Estos datos permiten al suscriptor calcular las
+                horas del calendario compartido en sus informes.</li>
+            <li>Las <strong>notas personales</strong> de cada día y las <strong>horas de recordatorio</strong>,
+                <em>únicamente</em> si el propietario mantiene activada la opción "Permitir ver notas y recordatorios"
+                en la configuración del calendario.</li>
+        </ul>
+        <p>
+            Si el propietario desactiva esa opción, el servidor no entrega las notas ni las horas de recordatorio: el
+            dispositivo del suscriptor no las recibe, no las almacena y no puede mostrarlas.
+        </p>
+        <p>
+            El token de compartición se genera automáticamente al crear el calendario y no puede modificarse desde la
+            Aplicación. Cualquier persona que conozca el token puede suscribirse al calendario, por lo que el
+            propietario debe compartirlo únicamente con quien desee. Para dejar de compartir un calendario, el
+            propietario debe eliminarlo.
         </p>
 
-        <h3>2.4. Configuración y Preferencias</h3>
+        <h3>2.4. Identificador de Dispositivo</h3>
+        <p>
+            Cuando la sincronización en la nube está activa, la Aplicación deriva un identificador único del propio
+            dispositivo (<em>Settings.Secure.ANDROID_ID</em> en Android, <em>identifierForVendor</em> en iOS) y lo
+            utiliza para crear una cuenta técnica en el servicio de autenticación del servidor. A partir de ese
+            identificador se genera una credencial que se guarda de forma segura mediante
+            <strong>expo-secure-store</strong>. Este identificador se utiliza exclusivamente para registrar y aprobar el
+            dispositivo en el sistema de sincronización y para asociar los datos del usuario a su propio dispositivo,
+            sin vincularse a ningún dato personal identificable.
+        </p>
+        <p>
+            En Android este identificador sobrevive a la desinstalación de la Aplicación, lo que permite recuperar los
+            datos del usuario si vuelve a instalarla. En iOS se regenera al desinstalar, por lo que el dispositivo se
+            registra como uno nuevo.
+        </p>
+
+        <h3>2.5. Configuración y Preferencias</h3>
         <p>
             La Aplicación persiste localmente las siguientes preferencias del usuario:
         </p>
@@ -84,8 +126,12 @@
             <li>Tema visual (oscuro o claro).</li>
             <li>Escala de interfaz (tamaño de texto y espaciado: S, M, L, XL).</li>
             <li>Estado de activación de las notificaciones de recordatorio.</li>
-            <li>Estado de desbloqueo del área de calendarios compartidos.</li>
         </ul>
+        <p>
+            Cuando la sincronización está activa, se almacenan además en la nube el calendario predeterminado del
+            usuario y el nombre personalizado que haya dado a los calendarios compartidos a los que está suscrito, de
+            modo que se restauren si reinstala la Aplicación.
+        </p>
 
         <h2>3. Almacenamiento de Datos</h2>
         <h3>3.1. Base de Datos Local</h3>
@@ -97,47 +143,87 @@
 
         <h3>3.2. Sincronización en la Nube (Supabase)</h3>
         <p>
-            Si la función de sincronización está activa y el dispositivo ha sido aprobado, los datos de turnos,
-            calendarios y entradas de días del usuario se sincronizan con un servicio de base de datos en la nube
-            (<strong>Supabase</strong>). Esta sincronización tiene como único fin permitir al usuario acceder a sus
-            datos desde múltiples dispositivos y compartir calendarios de solo lectura con otros usuarios. Los datos
-            sincronizados están protegidos mediante políticas de seguridad a nivel de fila (<em>Row Level Security</em>)
-            que impiden el acceso no autorizado. La Aplicación no utiliza ningún servicio de análisis, publicidad ni
-            rastreo de terceros.
+            Si la función de sincronización está activa y el dispositivo ha sido aprobado, los turnos, calendarios y
+            entradas de días del usuario se sincronizan con un servicio de base de datos en la nube
+            (<strong>Supabase</strong>) alojado por el responsable de la Aplicación. Esta sincronización tiene como
+            único fin permitir al usuario recuperar sus datos si reinstala la Aplicación y compartir calendarios de solo
+            lectura con otros usuarios. Los datos sincronizados están protegidos mediante políticas de seguridad a nivel
+            de fila (<em>Row Level Security</em>) que impiden que un usuario acceda a los datos de otro. La Aplicación no
+            utiliza ningún servicio de análisis, publicidad ni rastreo de terceros.
         </p>
 
-        <h2>4. Permisos Utilizados</h2>
-        <h3>4.1. Notificaciones</h3>
+        <h3>3.3. Ficheros Exportados</h3>
+        <p>
+            La Aplicación permite exportar los informes en formato PDF, Excel (XLSX) o CSV. El fichero se genera
+            íntegramente en el dispositivo, se guarda de forma temporal en el almacenamiento caché de la Aplicación y se
+            entrega al menú de compartir del sistema operativo. El usuario decide a qué aplicación o destinatario lo
+            envía. Estos ficheros pueden contener las notas personales de los días incluidos en el informe. El
+            responsable de la Aplicación no recibe copia alguna de ellos.
+        </p>
+
+        <h2>4. Solicitud y Aprobación del Acceso a la Nube</h2>
+        <p>
+            La sincronización en la nube y los calendarios compartidos están desactivados hasta que el usuario los
+            solicita expresamente desde la pantalla "Gestionar calendarios" y un administrador aprueba la solicitud.
+            Al solicitarla se registran en el servidor la plataforma del dispositivo (Android o iOS), la fecha de la
+            solicitud y su estado (pendiente, aprobada, rechazada o revocada).
+        </p>
+        <p>
+            Para poder distinguir un dispositivo de otro al revisar las solicitudes, el administrador del servidor puede
+            consultar el identificador técnico del dispositivo, la plataforma, las fechas de la solicitud y su
+            resolución, los <strong>nombres de los calendarios</strong> del usuario, sus tokens de compartición y el
+            número de días registrados. El administrador <strong>no</strong> consulta a través de este panel el
+            contenido de los días, los turnos ni las notas personales.
+        </p>
+        <p>
+            El administrador puede aprobar, rechazar o revocar el acceso en cualquier momento. Si se revoca, el
+            dispositivo deja de sincronizar; los datos ya almacenados en el dispositivo del usuario permanecen intactos.
+        </p>
+        <p>
+            Con independencia de ese panel, el responsable de la Aplicación administra el servidor de base de datos y,
+            como tal, tiene acceso técnico a los datos que en él se almacenan. Dicho acceso se utiliza únicamente para
+            operar y mantener el servicio.
+        </p>
+
+        <h2>5. Permisos Utilizados</h2>
+        <h3>5.1. Notificaciones</h3>
         <p>
             Si el usuario activa los recordatorios de turno, la Aplicación solicita permiso para enviar notificaciones
             locales. Las notificaciones son generadas y gestionadas íntegramente en el dispositivo; no se envía ningún
             dato a servidores externos para este fin. El usuario puede cancelar este permiso desde los ajustes del
             sistema en cualquier momento.
         </p>
-        <h3>4.2. Almacenamiento Seguro</h3>
+        <h3>5.2. Almacenamiento Seguro</h3>
         <p>
             La Aplicación utiliza el almacenamiento seguro del sistema operativo (<em>Keychain</em> en iOS,
-            <em>Keystore</em> en Android) para guardar el identificador único de dispositivo cuando la sincronización
-            está habilitada. Este permiso no implica acceso a datos personales del usuario.
+            <em>Keystore</em> en Android) para guardar la credencial del dispositivo cuando la sincronización está
+            habilitada. Este permiso no implica acceso a datos personales del usuario.
+        </p>
+        <h3>5.3. Compartir Ficheros</h3>
+        <p>
+            Al exportar un informe, la Aplicación utiliza el menú de compartir del sistema operativo. No se solicita
+            permiso de acceso al almacenamiento del dispositivo: los ficheros se escriben en el área privada de caché de
+            la propia Aplicación.
         </p>
 
-        <h2>5. Uso de la Información</h2>
+        <h2>6. Uso de la Información</h2>
         <p>
             Los datos almacenados se utilizan exclusivamente para ofrecer la funcionalidad de la Aplicación al propio
             usuario:
         </p>
         <ul>
             <li>Mostrar, crear, editar y eliminar turnos y calendarios.</li>
-            <li>Registrar el turno asignado a cada día, junto con notas y recordatorios.</li>
+            <li>Registrar el turno asignado a cada día, junto con un turno secundario opcional, notas y recordatorios.</li>
             <li>Permitir la asignación masiva de turnos a múltiples días.</li>
-            <li>Generar informes de turnos y días trabajados filtrables por calendario y periodo.</li>
-            <li>Sincronizar los datos del usuario entre dispositivos aprobados cuando la sincronización está activa.</li>
+            <li>Generar informes de turnos y días trabajados filtrables por calendario y periodo, y exportarlos a PDF,
+                Excel o CSV.</li>
+            <li>Recuperar los datos del usuario si reinstala la Aplicación, cuando la sincronización está activa.</li>
             <li>Mostrar calendarios compartidos de solo lectura suscritos por el usuario.</li>
             <li>Programar y gestionar notificaciones de recordatorio locales.</li>
             <li>Aplicar las preferencias de tema y escala seleccionadas por el usuario.</li>
         </ul>
 
-        <h2>6. Seguridad</h2>
+        <h2>7. Seguridad</h2>
         <p>
             Los datos locales residen en el dispositivo del usuario y no son accesibles desde el exterior. Los datos
             sincronizados en la nube están protegidos mediante cifrado en tránsito (HTTPS) y políticas de acceso
@@ -145,7 +231,15 @@
             debido a la naturaleza de la tecnología, no podemos garantizar la seguridad absoluta de los datos.
         </p>
 
-        <h2>7. Cambios en esta Política de Privacidad</h2>
+        <h2>8. Conservación y Eliminación de Datos</h2>
+        <p>
+            Los datos permanecen almacenados mientras el usuario mantenga la Aplicación instalada. Al desinstalarla se
+            eliminan todos los datos locales del dispositivo. Los datos sincronizados en la nube se conservan para
+            permitir su recuperación si el usuario reinstala la Aplicación. Si el usuario desea eliminar de forma
+            definitiva sus datos del servidor, puede solicitarlo en la dirección de contacto indicada más abajo.
+        </p>
+
+        <h2>9. Cambios en esta Política de Privacidad</h2>
         <p>
             Nos reservamos el derecho de actualizar o modificar esta Política de Privacidad en cualquier momento.
             Cualquier cambio se reflejará en una nueva versión de esta política, disponible en la Aplicación. El uso
@@ -153,7 +247,7 @@
             revisada.
         </p>
 
-        <h2>8. Contacto</h2>
+        <h2>10. Contacto</h2>
         <p>
             Si tienes alguna pregunta o inquietud sobre esta Política de Privacidad, por favor contacta con nosotros en
             <strong>ikerlorentecalvo@gmail.com</strong>.
