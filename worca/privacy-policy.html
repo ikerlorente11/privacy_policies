@@ -37,7 +37,7 @@
 <body>
     <div class="container">
         <h1>Política de Privacidad</h1>
-        <p><em>Última actualización: 10 de julio de 2026</em></p>
+        <p><em>Última actualización: 21 de julio de 2026</em></p>
 
         <h2>1. Introducción</h2>
         <p>
@@ -152,13 +152,33 @@
             utiliza ningún servicio de análisis, publicidad ni rastreo de terceros.
         </p>
 
-        <h3>3.3. Ficheros Exportados</h3>
+        <h3>3.3. Informes Exportados</h3>
         <p>
             La Aplicación permite exportar los informes en formato PDF, Excel (XLSX) o CSV. El fichero se genera
             íntegramente en el dispositivo, se guarda de forma temporal en el almacenamiento caché de la Aplicación y se
             entrega al menú de compartir del sistema operativo. El usuario decide a qué aplicación o destinatario lo
             envía. Estos ficheros pueden contener las notas personales de los días incluidos en el informe. El
             responsable de la Aplicación no recibe copia alguna de ellos.
+        </p>
+
+        <h3>3.4. Copia de Seguridad: Exportación e Importación de Datos</h3>
+        <p>
+            La Aplicación permite crear una <strong>copia de seguridad</strong> de los datos del usuario en un fichero
+            en formato JSON. El usuario elige qué incluir: todos los calendarios o uno concreto y, dentro de estos, los
+            turnos, los días asignados, las notas personales y las horas de recordatorio. El fichero se genera
+            íntegramente en el dispositivo, se guarda de forma temporal en el almacenamiento caché de la Aplicación y se
+            entrega al menú de compartir del sistema operativo, de modo que el usuario decide dónde guardarlo o a quién
+            enviarlo (por ejemplo, para trasladar sus datos a otro dispositivo). El responsable de la Aplicación no
+            recibe copia alguna de este fichero.
+        </p>
+        <p>
+            La Aplicación permite asimismo <strong>importar</strong> una copia de seguridad previamente exportada. Para
+            ello utiliza el selector de ficheros del sistema operativo (<em>expo-document-picker</em>), mediante el cual
+            el usuario elige un único fichero; la Aplicación accede exclusivamente al fichero que el usuario selecciona
+            de forma expresa, lo lee en el propio dispositivo e incorpora su contenido a la base de datos local. Los
+            calendarios y turnos importados se crean con nuevos identificadores, de manera que la importación no
+            sobrescribe los datos que el usuario ya tuviera. Si la sincronización en la nube está activa y aprobada, los
+            datos importados se sincronizan además como datos propios del usuario, conforme al apartado 3.2.
         </p>
 
         <h2>4. Solicitud y Aprobación del Acceso a la Nube</h2>
@@ -199,11 +219,17 @@
             <em>Keystore</em> en Android) para guardar la credencial del dispositivo cuando la sincronización está
             habilitada. Este permiso no implica acceso a datos personales del usuario.
         </p>
-        <h3>5.3. Compartir Ficheros</h3>
+        <h3>5.3. Compartir e Importar Ficheros</h3>
         <p>
-            Al exportar un informe, la Aplicación utiliza el menú de compartir del sistema operativo. No se solicita
-            permiso de acceso al almacenamiento del dispositivo: los ficheros se escriben en el área privada de caché de
-            la propia Aplicación.
+            Al exportar un informe o una copia de seguridad, la Aplicación utiliza el menú de compartir del sistema
+            operativo. No se solicita permiso de acceso al almacenamiento del dispositivo: los ficheros se escriben en el
+            área privada de caché de la propia Aplicación.
+        </p>
+        <p>
+            Al importar una copia de seguridad, la Aplicación utiliza el selector de ficheros del sistema operativo.
+            Tampoco en este caso se solicita un permiso general de acceso al almacenamiento: el sistema concede acceso
+            únicamente al fichero que el usuario elige de forma expresa, y la Aplicación no lee ningún otro contenido del
+            dispositivo.
         </p>
 
         <h2>6. Uso de la Información</h2>
@@ -217,6 +243,8 @@
             <li>Permitir la asignación masiva de turnos a múltiples días.</li>
             <li>Generar informes de turnos y días trabajados filtrables por calendario y periodo, y exportarlos a PDF,
                 Excel o CSV.</li>
+            <li>Crear copias de seguridad de los datos del usuario en un fichero y restaurarlas importándolo, según lo
+                que el usuario decida incluir.</li>
             <li>Recuperar los datos del usuario si reinstala la Aplicación, cuando la sincronización está activa.</li>
             <li>Mostrar calendarios compartidos de solo lectura suscritos por el usuario.</li>
             <li>Programar y gestionar notificaciones de recordatorio locales.</li>
