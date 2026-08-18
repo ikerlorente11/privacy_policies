@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Política de Privacidad</h1>
+        <p><em>Última actualización: 18 de agosto de 2026</em></p>
+
+        <h2>1. Introducción</h2>
+        <p>
+            Esta Política de Privacidad describe cómo maneja y protege la información que se recopila y almacena en la
+            aplicación <strong>LiftLog</strong> (<code>com.ikerlorente11.liftlog</code>, "la Aplicación"), un registro de
+            entrenamientos de fuerza. La privacidad de nuestros usuarios es de suma importancia, y nos comprometemos a
+            proteger cualquier información generada a través del uso de la Aplicación. LiftLog funciona
+            <strong>sin cuenta de usuario ni registro</strong> y no envía tus datos a ningún servidor.
+        </p>
+
+        <h2>2. Información Recopilada</h2>
+        <h3>2.1. Información Personal</h3>
+        <p>
+            La Aplicación no recopila, solicita ni almacena ninguna información personal identificable del usuario, como
+            direcciones de correo electrónico, números de teléfono, ubicación o cualquier otro dato que pueda
+            identificar al usuario. El único dato de perfil es un nombre opcional que el usuario escribe libremente y
+            que solo se muestra dentro de la propia Aplicación.
+        </p>
+
+        <h3>2.2. Datos creados por el usuario</h3>
+        <p>
+            La Aplicación almacena localmente el contenido que el usuario crea para registrar su entrenamiento:
+        </p>
+        <ul>
+            <li><strong>Rutinas y carpetas:</strong> nombre, notas, ejercicios, series objetivo (peso, repeticiones,
+                tiempo o distancia), superseries y tiempos de descanso.</li>
+            <li><strong>Entrenamientos:</strong> título, notas, fecha, duración y las series realizadas en cada
+                ejercicio, incluidos los récords personales calculados a partir de ellas.</li>
+            <li><strong>Ejercicios personalizados:</strong> nombre, grupo muscular, equipamiento, tipo e instrucciones
+                introducidos por el usuario.</li>
+            <li><strong>Medidas corporales:</strong> valores que el usuario decide anotar voluntariamente (por ejemplo
+                peso corporal, porcentaje de grasa o perímetros) con su fecha.</li>
+        </ul>
+
+        <h3>2.3. Configuración y Preferencias</h3>
+        <p>La Aplicación persiste localmente las siguientes preferencias del usuario:</p>
+        <ul>
+            <li>Nombre mostrado en el perfil (opcional)</li>
+            <li>Unidades de peso (kg/lb) y distancia (km/mi)</li>
+            <li>Tema visual (sistema, oscuro o claro)</li>
+            <li>Duración del descanso por defecto y vibración al terminar</li>
+            <li>Día de inicio de la semana</li>
+            <li>Estado del entrenamiento en curso (para poder reanudarlo si se cierra la Aplicación)</li>
+        </ul>
+
+        <h2>3. Almacenamiento de Datos</h2>
+        <h3>3.1. Base de Datos Local</h3>
+        <p>
+            Todos los datos generados por la Aplicación se almacenan en una base de datos <strong>SQLite local</strong>
+            en el dispositivo del usuario (junto con las preferencias). Estos datos no se transmiten, comparten ni
+            almacenan en servidores externos. La Aplicación no utiliza ningún servicio de análisis, publicidad ni
+            rastreo de terceros.
+        </p>
+        <h3>3.2. Imágenes de ejercicios</h3>
+        <p>
+            Para mostrar las imágenes de ejecución de los ejercicios, la Aplicación descarga ficheros de imagen
+            estáticos de la base de datos pública <em>free-exercise-db</em> alojada en GitHub
+            (<code>raw.githubusercontent.com</code>). Estas peticiones solo solicitan la imagen del ejercicio y no
+            incluyen ningún dato del usuario ni de su entrenamiento; las imágenes se guardan en la caché del
+            dispositivo. El botón "Ver vídeo demostrativo" abre una búsqueda en YouTube en el navegador o la
+            aplicación de YouTube del usuario, sujeta a las políticas de privacidad de Google.
+        </p>
+
+        <h2>4. Permisos Utilizados</h2>
+        <h3>4.1. Notificaciones y vibración</h3>
+        <p>
+            La Aplicación puede pedir permiso para <em>mostrar notificaciones</em> con el fin de avisar al usuario
+            cuando termina el temporizador de descanso, incluso si la Aplicación está en segundo plano, y utiliza la
+            vibración del dispositivo con el mismo fin. Estas notificaciones se programan localmente en el dispositivo;
+            no se utiliza ningún servicio de notificaciones remoto.
+        </p>
+        <h3>4.2. Selección de ficheros (importar)</h3>
+        <p>
+            Si el usuario decide importar una copia de seguridad, la Aplicación abre el selector de ficheros del
+            sistema para que el usuario elija un fichero. La Aplicación solo lee el fichero seleccionado expresamente
+            por el usuario y no accede a ningún otro contenido del almacenamiento.
+        </p>
+
+        <h2>5. Uso de la Información</h2>
+        <p>
+            Los datos almacenados se utilizan exclusivamente para ofrecer la funcionalidad de la Aplicación al propio
+            usuario en su dispositivo:
+        </p>
+        <ul>
+            <li>Crear, editar y organizar rutinas de entrenamiento.</li>
+            <li>Registrar entrenamientos, calcular volumen, récords personales, historial y gráficas de progreso.</li>
+            <li>Mostrar estadísticas, calendario y evolución de las medidas corporales.</li>
+            <li>Aplicar las preferencias seleccionadas por el usuario.</li>
+        </ul>
+
+        <h2>6. Compartir, Exportar e Importar</h2>
+        <p>
+            La Aplicación permite <strong>exportar</strong> una copia de seguridad de todos los datos a un fichero JSON
+            y compartir un resumen de un entrenamiento o de una rutina en texto mediante el menú nativo del sistema
+            (por ejemplo, aplicaciones de mensajería o correo). Este envío ocurre
+            <strong>únicamente cuando el usuario lo solicita de forma explícita</strong> y a través de la aplicación que
+            el propio usuario elige; LiftLog no envía estos datos a ningún servidor propio. La gestión de esos datos una
+            vez compartidos queda sujeta a la política de privacidad de la aplicación de destino elegida por el usuario.
+        </p>
+
+        <h2>7. Seguridad</h2>
+        <p>
+            Todos los datos residen en el dispositivo del usuario y no son accesibles desde el exterior. Tomamos medidas
+            razonables para proteger la información almacenada, aunque, debido a la naturaleza de la tecnología, no
+            podemos garantizar la seguridad absoluta de los datos en el dispositivo.
+        </p>
+
+        <h2>8. Eliminación de Datos</h2>
+        <p>
+            El usuario puede eliminar en cualquier momento entrenamientos, rutinas, medidas o ejercicios individuales
+            desde la propia Aplicación, borrar todos los datos desde <em>Ajustes → Borrar todos los datos</em>, o
+            desinstalar la Aplicación, lo que elimina toda la información almacenada.
+        </p>
+
+        <h2>9. Privacidad de los Menores</h2>
+        <p>
+            La Aplicación no recopila datos personales de ningún usuario, incluidos los menores de edad. Todo el
+            contenido es introducido voluntariamente por el usuario y permanece en su dispositivo. La Aplicación no
+            está dirigida a menores de 13 años.
+        </p>
+
+        <h2>10. Cambios en esta Política de Privacidad</h2>
+        <p>
+            Nos reservamos el derecho de actualizar o modificar esta Política de Privacidad en cualquier momento.
+            Cualquier cambio se reflejará en una nueva versión de esta política, disponible en esta misma dirección. El
+            uso continuo de la Aplicación tras cualquier modificación constituye la aceptación de la Política de
+            Privacidad revisada.
+        </p>
+
+        <h2>11. Contacto</h2>
+        <p>
+            Si tienes alguna pregunta o inquietud sobre esta Política de Privacidad, por favor contacta con nosotros en
+            <strong>ikerlorentecalvo@gmail.com</strong>.
+        </p>
+    </div>
+</body>
+
+</html>
