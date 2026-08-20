@@ -37,7 +37,7 @@
 <body>
     <div class="container">
         <h1>Política de Privacidad</h1>
-        <p><em>Última actualización: 18 de agosto de 2026</em></p>
+        <p><em>Última actualización: 20 de agosto de 2026</em></p>
 
         <h2>1. Introducción</h2>
         <p>
@@ -45,7 +45,8 @@
             aplicación <strong>LiftLog</strong> (<code>com.ikerlorente11.liftlog</code>, "la Aplicación"), un registro de
             entrenamientos de fuerza. La privacidad de nuestros usuarios es de suma importancia, y nos comprometemos a
             proteger cualquier información generada a través del uso de la Aplicación. LiftLog funciona
-            <strong>sin cuenta de usuario ni registro</strong> y no envía tus datos a ningún servidor.
+            <strong>sin cuenta de usuario ni registro</strong> y no envía tus datos a ningún servidor (ver la sección 3.3
+            sobre la comprobación técnica de actualizaciones).
         </p>
 
         <h2>2. Información Recopilada</h2>
@@ -89,7 +90,7 @@
             Todos los datos generados por la Aplicación se almacenan en una base de datos <strong>SQLite local</strong>
             en el dispositivo del usuario (junto con las preferencias). Estos datos no se transmiten, comparten ni
             almacenan en servidores externos. La Aplicación no utiliza ningún servicio de análisis, publicidad ni
-            rastreo de terceros.
+            rastreo de terceros; las únicas comunicaciones con el exterior son las descritas en las secciones 3.2 y 3.3.
         </p>
         <h3>3.2. Imágenes de ejercicios</h3>
         <p>
@@ -99,6 +100,19 @@
             incluyen ningún dato del usuario ni de su entrenamiento; las imágenes se guardan en la caché del
             dispositivo. El botón "Ver vídeo demostrativo" abre una búsqueda en YouTube en el navegador o la
             aplicación de YouTube del usuario, sujeta a las políticas de privacidad de Google.
+        </p>
+
+        <h3>3.3. Actualizaciones de la Aplicación (Expo EAS Update)</h3>
+        <p>
+            LiftLog utiliza el servicio <strong>EAS Update</strong> de Expo (Expo, Inc.) para distribuir mejoras y
+            correcciones sin necesidad de pasar por la tienda de aplicaciones. Al iniciarse, la Aplicación comprueba en
+            los servidores de Expo (<code>u.expo.dev</code>) si existe una versión nueva y, en su caso, la descarga.
+            En esa comprobación se transmiten únicamente datos técnicos: plataforma (Android o iOS), versión de la
+            Aplicación y de su entorno de ejecución, canal de actualización y un identificador anónimo de instalación
+            generado por el propio componente de actualizaciones. <strong>No se envía ningún dato personal ni contenido
+            creado por el usuario.</strong> La comunicación se realiza cifrada (HTTPS). El tratamiento de esos datos
+            técnicos por parte de Expo se rige por su política de privacidad:
+            <a href="https://expo.dev/privacy" target="_blank" rel="noopener">https://expo.dev/privacy</a>.
         </p>
 
         <h2>4. Permisos Utilizados</h2>

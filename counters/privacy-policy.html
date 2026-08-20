@@ -37,7 +37,7 @@
 <body>
     <div class="container">
         <h1>Política de Privacidad</h1>
-        <p><em>Última actualización: 10 de julio de 2026</em></p>
+        <p><em>Última actualización: 20 de agosto de 2026</em></p>
 
         <h2>1. Introducción</h2>
         <p>
@@ -86,7 +86,21 @@
         <p>
             Todos los datos generados por la Aplicación se almacenan en una base de datos <strong>SQLite local</strong>
             en el dispositivo del usuario. Estos datos no se transmiten, comparten ni almacenan en servidores externos.
-            La Aplicación no utiliza ningún servicio de análisis, publicidad ni rastreo de terceros.
+            La Aplicación no utiliza ningún servicio de análisis, publicidad ni rastreo de terceros; la única
+            comunicación con el exterior es la comprobación de actualizaciones descrita en la sección 3.2.
+        </p>
+
+        <h3>3.2. Actualizaciones de la Aplicación (Expo EAS Update)</h3>
+        <p>
+            Counters utiliza el servicio <strong>EAS Update</strong> de Expo (Expo, Inc.) para distribuir mejoras y
+            correcciones sin necesidad de pasar por la tienda de aplicaciones. Al iniciarse, la Aplicación comprueba en
+            los servidores de Expo (<code>u.expo.dev</code>) si existe una versión nueva y, en su caso, la descarga.
+            En esa comprobación se transmiten únicamente datos técnicos: plataforma (Android o iOS), versión de la
+            Aplicación y de su entorno de ejecución, canal de actualización y un identificador anónimo de instalación
+            generado por el propio componente de actualizaciones. <strong>No se envía ningún dato personal ni contenido
+            creado por el usuario.</strong> La comunicación se realiza cifrada (HTTPS). El tratamiento de esos datos
+            técnicos por parte de Expo se rige por su política de privacidad:
+            <a href="https://expo.dev/privacy" target="_blank" rel="noopener">https://expo.dev/privacy</a>.
         </p>
 
         <h2>4. Permisos Utilizados</h2>
@@ -136,8 +150,8 @@
             </li>
         </ul>
         <p>
-            Ni el texto copiado ni el PDF se envían a ningún servidor nuestro: la Aplicación no dispone de conexión con
-            servidores externos. A partir del momento en que el usuario pega el texto o comparte el PDF con otra
+            Ni el texto copiado ni el PDF se envían a ningún servidor nuestro: la Aplicación no envía contenido del usuario a
+            ningún servidor (la única comunicación externa es la comprobación de actualizaciones de la sección 3.2). A partir del momento en que el usuario pega el texto o comparte el PDF con otra
             aplicación, esos datos quedan bajo el control de la aplicación de destino y de su propia política de
             privacidad.
         </p>
