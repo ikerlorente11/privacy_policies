@@ -49,7 +49,7 @@
 <body>
     <div class="container">
         <h1>Política de Privacidad</h1>
-        <p><em>Última actualización: 25 de noviembre de 2026</em></p>
+        <p><em>Última actualización: 25 de noviembre de 2026 (actualizaciones de la Aplicación)</em></p>
 
         <h2>1. Introducción</h2>
         <p>
@@ -58,7 +58,7 @@
             reproductor de música. El Reproductor funciona <strong>sin cuenta de usuario ni registro</strong>, reproduce
             la música en el propio dispositivo y no envía tus datos a ningún servidor nuestro: solo se conecta a los
             servidores que el propio usuario decide añadir (sección 3.2) y, al ver la letra de una canción, a LRCLIB
-            (sección 3.3).
+            (sección 3.3), además de comprobar si hay actualizaciones (sección 3.4).
         </p>
 
         <h2>2. Información Recopilada</h2>
@@ -92,7 +92,7 @@
             Todos los datos de la sección 2 se almacenan <strong>únicamente en el dispositivo del usuario</strong>, junto
             con las copias que la Aplicación guarda para trabajar (portadas y canciones guardadas para escuchar sin
             conexión). La Aplicación no utiliza ningún servicio de análisis, publicidad ni rastreo de terceros; las únicas
-            comunicaciones con el exterior son las descritas en las secciones 3.2 y 3.3.
+            comunicaciones con el exterior son las descritas en las secciones 3.2, 3.3 y 3.4.
         </p>
 
         <h3>3.2. Bibliotecas y servidores añadidos por el usuario</h3>
@@ -116,6 +116,19 @@
             (como la dirección IP). No se envía ningún otro dato. LRCLIB trata esos datos según sus propias condiciones.
         </p>
 
+        <h3>3.4. Actualizaciones de la Aplicación (Expo EAS Update)</h3>
+        <p>
+            El Reproductor utiliza el servicio <strong>EAS Update</strong> de Expo (Expo, Inc.) para distribuir mejoras y
+            correcciones sin necesidad de pasar por la tienda de aplicaciones. Al iniciarse, la Aplicación comprueba en
+            los servidores de Expo (<code>u.expo.dev</code>) si existe una versión nueva y, en su caso, la descarga.
+            En esa comprobación se transmiten únicamente datos técnicos: plataforma (Android o iOS), versión de la
+            Aplicación y de su entorno de ejecución, canal de actualización y un identificador anónimo de instalación
+            generado por el propio componente de actualizaciones. <strong>No se envía ningún dato personal, canción ni
+            contenido del usuario.</strong> La comunicación se realiza cifrada (HTTPS). El tratamiento de esos datos
+            técnicos por parte de Expo se rige por su política de privacidad:
+            <a href="https://expo.dev/privacy" target="_blank" rel="noopener">https://expo.dev/privacy</a>.
+        </p>
+
         <h2>4. Permisos Utilizados</h2>
         <h3>4.1. Acceso a audio</h3>
         <p>
@@ -123,7 +136,7 @@
             puede seguir usándose con sus servidores.
         </p>
         <h3>4.2. Internet</h3>
-        <p>Para conectar con los servidores que el usuario añade (sección 3.2) y buscar letras (sección 3.3).</p>
+        <p>Para conectar con los servidores que el usuario añade (sección 3.2), buscar letras (sección 3.3) y comprobar actualizaciones (sección 3.4).</p>
         <h3>4.3. Reproducción en segundo plano</h3>
         <p>
             La Aplicación usa un servicio en primer plano de reproducción multimedia y mantiene el dispositivo despierto
