@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad – El Reproductor</title>
+    <meta name="description" content="Política de privacidad de El Reproductor, app Android de Iker Lorente Calvo.">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .site-footer {
+            max-width: 800px;
+            margin: 16px auto 0;
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .site-footer a {
+            color: #2a5db0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Política de Privacidad</h1>
+        <p><em>Última actualización: 25 de noviembre de 2026</em></p>
+
+        <h2>1. Introducción</h2>
+        <p>
+            Esta Política de Privacidad describe cómo maneja y protege la información que se recopila y almacena en la
+            aplicación <strong>El Reproductor</strong> (<code>com.ikerlorente11.reproductor</code>, "la Aplicación"), un
+            reproductor de música. El Reproductor funciona <strong>sin cuenta de usuario ni registro</strong>, reproduce
+            la música en el propio dispositivo y no envía tus datos a ningún servidor nuestro: solo se conecta a los
+            servidores que el propio usuario decide añadir (sección 3.2) y, al ver la letra de una canción, a LRCLIB
+            (sección 3.3).
+        </p>
+
+        <h2>2. Información Recopilada</h2>
+        <h3>2.1. Información Personal</h3>
+        <p>
+            La Aplicación no recopila, solicita ni almacena ninguna información personal identificable del usuario, como
+            nombre, direcciones de correo electrónico, números de teléfono, ubicación o cualquier otro dato que pueda
+            identificar al usuario.
+        </p>
+
+        <h3>2.2. Música del usuario</h3>
+        <p>
+            Con el permiso de acceso a audio que el usuario concede, la Aplicación lee el índice de música del sistema
+            Android (título, artista, disco, duración y portada de cada canción) para mostrarla ordenada y reproducirla.
+            También reproduce los archivos que el usuario abre desde otra aplicación («Abrir con»). Estos archivos se leen
+            en el dispositivo y no se envían a ninguna parte.
+        </p>
+
+        <h3>2.3. Datos creados por el usuario</h3>
+        <p>La Aplicación almacena localmente:</p>
+        <ul>
+            <li><strong>Listas de reproducción</strong>, la cola y por dónde iba la canción que sonaba.</li>
+            <li><strong>Historial de escucha</strong> reciente, para la pantalla de inicio.</li>
+            <li><strong>Bibliotecas y servidores</strong> que el usuario añade (sección 3.2).</li>
+            <li><strong>Preferencias:</strong> tema visual, carpetas ocultas, modo aleatorio y de repetición, volumen.</li>
+        </ul>
+
+        <h2>3. Almacenamiento de Datos</h2>
+        <h3>3.1. Almacenamiento Local</h3>
+        <p>
+            Todos los datos de la sección 2 se almacenan <strong>únicamente en el dispositivo del usuario</strong>, junto
+            con las copias que la Aplicación guarda para trabajar (portadas y canciones guardadas para escuchar sin
+            conexión). La Aplicación no utiliza ningún servicio de análisis, publicidad ni rastreo de terceros; las únicas
+            comunicaciones con el exterior son las descritas en las secciones 3.2 y 3.3.
+        </p>
+
+        <h3>3.2. Bibliotecas y servidores añadidos por el usuario</h3>
+        <p>
+            La Aplicación no incluye música ni se conecta a ningún servicio de música por defecto. El usuario puede añadir,
+            cuando quiera y solo si quiere, sus propios servidores de música (compatibles con Subsonic, como Navidrome, o
+            Jellyfin) o un servidor de El Reproductor, con la dirección, el usuario y la contraseña que el propio usuario
+            escribe. Las credenciales se usan solo para conectar con ese servidor, se guardan <strong>cifradas</strong>
+            con el almacén de claves del dispositivo y nunca se envían a ninguna otra parte; con un servidor de El
+            Reproductor, la Aplicación crea en él una contraseña de aplicación y guarda solo esa. Lo que la Aplicación
+            intercambia con esos servidores (listados de música, canciones, listas, historial de escucha y el nombre del
+            dispositivo para seguir escuchando en otro dispositivo) queda en el servidor del propio usuario. El usuario
+            puede quitarlos en cualquier momento.
+        </p>
+
+        <h3>3.3. Letras de canciones (LRCLIB)</h3>
+        <p>
+            Cuando el usuario abre la letra de una canción que no la trae consigo, la Aplicación la busca en
+            <strong>LRCLIB</strong> (<code>lrclib.net</code>), un servicio público de letras, enviando solo el título, el
+            artista, el disco y la duración de esa canción, además de los datos técnicos propios de cualquier conexión
+            (como la dirección IP). No se envía ningún otro dato. LRCLIB trata esos datos según sus propias condiciones.
+        </p>
+
+        <h2>4. Permisos Utilizados</h2>
+        <h3>4.1. Acceso a audio</h3>
+        <p>
+            Para mostrar y reproducir la música del dispositivo (sección 2.2). Si el usuario no lo concede, la Aplicación
+            puede seguir usándose con sus servidores.
+        </p>
+        <h3>4.2. Internet</h3>
+        <p>Para conectar con los servidores que el usuario añade (sección 3.2) y buscar letras (sección 3.3).</p>
+        <h3>4.3. Reproducción en segundo plano</h3>
+        <p>
+            La Aplicación usa un servicio en primer plano de reproducción multimedia y mantiene el dispositivo despierto
+            mientras suena la música, para que siga sonando con la pantalla apagada y se pueda controlar desde la
+            notificación, la pantalla de bloqueo y los auriculares.
+        </p>
+
+        <h2>5. Uso de la Información</h2>
+        <p>
+            Los datos almacenados se utilizan exclusivamente para ofrecer la funcionalidad de la Aplicación al propio
+            usuario: mostrar su música ordenada por artistas, discos y carpetas, reproducirla, recordar sus listas y
+            preferencias, y conectar con los servidores que ha añadido.
+        </p>
+
+        <h2>6. Seguridad</h2>
+        <p>
+            Los datos residen en el dispositivo del usuario y en los servidores del propio usuario. Las credenciales se
+            guardan cifradas. Tomamos medidas razonables para proteger la información almacenada, aunque, debido a la
+            naturaleza de la tecnología, no podemos garantizar la seguridad absoluta de los datos en el dispositivo.
+        </p>
+
+        <h2>7. Eliminación de Datos</h2>
+        <p>
+            El usuario puede, en cualquier momento y desde la propia Aplicación, borrar sus listas, quitar bibliotecas y
+            servidores, borrar las canciones guardadas sin conexión o desinstalar la Aplicación, lo que elimina toda la
+            información almacenada por ella en el dispositivo. La Aplicación no borra la música del usuario salvo que este
+            lo pida expresamente.
+        </p>
+
+        <h2>8. Privacidad de los Menores</h2>
+        <p>
+            La Aplicación no recopila datos personales de ningún usuario, incluidos los menores de edad. La Aplicación no
+            está dirigida a menores de 13 años.
+        </p>
+
+        <h2>9. Cambios en esta Política de Privacidad</h2>
+        <p>
+            Nos reservamos el derecho de actualizar o modificar esta Política de Privacidad en cualquier momento.
+            Cualquier cambio se reflejará en una nueva versión de esta política, disponible en esta misma dirección. El
+            uso continuo de la Aplicación tras cualquier modificación constituye la aceptación de la Política de
+            Privacidad revisada.
+        </p>
+
+        <h2>10. Contacto</h2>
+        <p>
+            Si tienes alguna pregunta o inquietud sobre esta Política de Privacidad, por favor contacta con nosotros en
+            <strong>ikerlorentecalvo@gmail.com</strong>.
+        </p>
+    </div>
+    <footer class="site-footer">
+        <p>
+            El Reproductor es una app de <a href="https://ikl.pistation.dev/es/">Iker Lorente Calvo</a>.
+            <a href="../">Otras políticas de privacidad</a>
+        </p>
+    </footer>
+</body>
+
+</html>
